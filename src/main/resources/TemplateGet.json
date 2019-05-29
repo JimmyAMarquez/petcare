@@ -1,0 +1,10 @@
+#set($qs = $input.params().querystring)
+{
+"httpMethod":"$context.httpMethod",
+"queryStringParameters":{
+  #foreach($key in $qs.keySet())
+  "$key": "$qs.get($key)"
+  #if($foreach.hasNext), #end
+  #end
+}
+}

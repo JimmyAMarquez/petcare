@@ -1,0 +1,34 @@
+Transform: AWS::Serverless-2016-10-31
+Description:
+
+Resources:
+  GetFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: handleRequest
+      Handler: com.franklin.model.request.IncomingRequestHandler::handleRequest
+      Runtime: java8
+      CodeUri: target/PetCare-1.0-SNAPSHOT.jar
+      Timeout: 300
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get
+            Cors: true
+  PostFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: handleRequest
+      Handler: com.franklin.model.request.IncomingRequestHandler::handleRequest
+      Runtime: java8
+      CodeUri: target/PetCare-1.0-SNAPSHOT.jar
+      Timeout: 300
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /
+            Method: post
+            Cors: true
